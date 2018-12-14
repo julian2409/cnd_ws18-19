@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -38,6 +39,12 @@ public class Application {
 	@RequestMapping(value = "/studentgrades/")
 	String getTodos(@RequestParam("mn") int mn){
 		return studentRepos.findById(mn).get().getName();
+	}
+
+	
+	@RequestMapping(value = "/students", method = RequestMethod.POST)
+	String createStudent(@RequestParam int mn, @RequestParam String name, @RequestParam String firstName){
+		return studentRepos.save(new Student(mn, name, firstName)).getName();	
 	}
 
 /* 	@DeleteMapping("/{todo}")
