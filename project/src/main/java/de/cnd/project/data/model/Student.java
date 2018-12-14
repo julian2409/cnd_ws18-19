@@ -8,7 +8,7 @@ import lombok.Data;
 
 @Data
 @Entity
-class Student {
+public class Student {
 
     @Id
     @GeneratedValue

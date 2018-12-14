@@ -10,7 +10,7 @@ import lombok.Data;
 
 @Data
 @Entity
-class Grade {
+public class Grade {
 
     @Id
     @GeneratedValue

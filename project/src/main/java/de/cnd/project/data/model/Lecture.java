@@ -12,7 +12,7 @@ import lombok.Data;
 
 @Data
 @Entity
-class Lecture {
+public class Lecture {
 
     @Id
     @GeneratedValue
