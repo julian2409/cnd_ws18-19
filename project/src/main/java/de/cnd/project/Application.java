@@ -12,26 +12,32 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import de.cnd.project.data.*;
+import de.cnd.project.data.model.Grade;
+
 
 @SpringBootApplication
 @RestController
 public class Application {
 	private ArrayList<Double> todoList = new ArrayList<Double>();
-
+	
+	private StudentRepository studentRepos;
+	private LectureRepository lectureRepos;
+	private GradeRepository gradeRepos;
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
 	}
 
-	@GetMapping("/hello")
+/* 	@GetMapping("/hello")
 	String sayHello(){
 
 		return "Hello Esslingen!";
-	}
+	} */
 
-	@GetMapping("/")
-	String getTodos(){
-
-		return todoList.toString();
+	@GetMapping("/studentgrades/{matrikelnr}")
+	String getTodos(@PathVariable long matrikelnr){
+		
+		return studentRepos.findById(matrikelnr).toString();
 	}
 
 /* 	@PostMapping("/{todo}")
@@ -54,6 +60,4 @@ public class Application {
 		todoList.remove(todo);
 		return  todo+" removed";
 	} */
-
-
 }
