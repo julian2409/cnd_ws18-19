@@ -20,7 +20,7 @@ public class Grade {
     @JoinColumn(name = "matrikelNummer")
     private Student student;
 
-    Grade (double grade) {
+    public Grade (double grade) {
         this.setGrade(grade);
     }
 

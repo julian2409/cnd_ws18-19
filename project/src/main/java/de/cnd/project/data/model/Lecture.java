@@ -24,7 +24,7 @@ public class Lecture {
     private Set<Grade> grades;
 
 
-    Lecture (String name, int creditPoints) {
+    public Lecture (String name, int creditPoints) {
         this.setName(name);
         //this.creditPoints = creditPoints;
     }

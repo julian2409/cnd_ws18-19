@@ -11,16 +11,19 @@ import lombok.Data;
 public class Student {
 
     @Id
-    @GeneratedValue
-    private Long matrikelnummer;
+    private int matrikelnummer;
+
     private String name;
     private String firstName;
  /*    private int semester;
     private int timeSemester; */
 
-    Student(String name, String firstName) {
+public Student(){}
+
+    public Student(int matrikelnr, String name, String firstName) {
         this.setName(name);
         this.setFirstName(firstName);
+        this.matrikelnummer = matrikelnr;
     }
 
     /**

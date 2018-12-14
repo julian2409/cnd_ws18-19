@@ -14,14 +14,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import de.cnd.project.data.*;
-import de.cnd.project.data.model.Grade;
-
+import de.cnd.project.data.model.*;
 
 @SpringBootApplication
 @RestController
 public class Application {
-	private ArrayList<Double> todoList = new ArrayList<Double>();
-	
 	@Autowired
 	private StudentRepository studentRepos;
 	@Autowired
@@ -29,32 +26,18 @@ public class Application {
 	@Autowired
 	private GradeRepository gradeRepos;
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		SpringApplication.run(Application.class, args);		
 	}
 
-/* 	@GetMapping("/hello")
-	String sayHello(){
-
-		return "Hello Esslingen!";
-	} */
-
-	@GetMapping("/studentgrades/{matrikelnr}")
-	String getTodos(@PathVariable long matrikelnr){
-		return studentRepos.findById(matrikelnr).get().getFirstName();
+	@GetMapping("/")
+	void initializeStundents(){
+		studentRepos.save(new Student(65416,"Julian", ""));
+		studentRepos.save(new Student(5646512, "Nitin", ""));
 	}
 
-/* 	@PostMapping("/{todo}")
-	String addTodo(@PathVariable double todo){
-
-		todoList.add(todo);
-		return  todo+" added";
-	} */
-
-	@RequestMapping(value = "/")
-	public String addTodo(@RequestParam("todo") double todo) {
- 	
-		todoList.add(todo);
-		return  todo+" added";
+	@RequestMapping(value = "/studentgrades/")
+	String getTodos(@RequestParam("mn") int mn){
+		return studentRepos.findById(mn).get().getName();
 	}
 
 /* 	@DeleteMapping("/{todo}")
