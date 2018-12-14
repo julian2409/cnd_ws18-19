@@ -18,14 +18,28 @@ public class Lecture {
     @GeneratedValue
     private Long lId;
     private String name;
-    private int creditPoints;
+    //private int creditPoints;
     @OneToMany
     @JoinColumn(name = "gId")
     private Set<Grade> grades;
 
 
     Lecture (String name, int creditPoints) {
+        this.setName(name);
+        //this.creditPoints = creditPoints;
+    }
+
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
         this.name = name;
-        this.creditPoints = creditPoints;
     }
 }

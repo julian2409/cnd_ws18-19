@@ -21,6 +21,20 @@ public class Grade {
     private Student student;
 
     Grade (double grade) {
+        this.setGrade(grade);
+    }
+
+    /**
+     * @return the grade
+     */
+    public double getGrade() {
+        return grade;
+    }
+
+    /**
+     * @param grade the grade to set
+     */
+    public void setGrade(double grade) {
         this.grade = grade;
     }
 }

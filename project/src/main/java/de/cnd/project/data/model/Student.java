@@ -15,11 +15,39 @@ public class Student {
     private Long matrikelnummer;
     private String name;
     private String firstName;
-    private int semester;
-    private int timeSemester;
+ /*    private int semester;
+    private int timeSemester; */
 
     Student(String name, String firstName) {
-        this.name = name;
+        this.setName(name);
+        this.setFirstName(firstName);
+    }
+
+    /**
+     * @return the firstName
+     */
+    public String getFirstName() {
+        return firstName;
+    }
+
+    /**
+     * @param firstName the firstName to set
+     */
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
+    }
+
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
     }
 }
