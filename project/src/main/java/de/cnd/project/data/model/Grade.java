@@ -1,4 +1,4 @@
-package de.cnd.project.grading;
+package de.cnd.project.data.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,7 +14,7 @@ class Grade {
 
     @Id
     @GeneratedValue
-    private Long id;
+    private Long gId;
     private double grade;
     @OneToOne
     @JoinColumn(name = "matrikelNummer")
